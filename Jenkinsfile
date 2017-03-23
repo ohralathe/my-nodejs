@@ -15,7 +15,11 @@ pipeline {
           },
           "build win": {
             echo 'build for windows'
-            node(label: 'vg-host')
+
+            node(label: 'vg-host') {
+              sh 'echo "balbal"'
+            }
+            
             
           }
         )
