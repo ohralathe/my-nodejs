@@ -1,16 +1,37 @@
 pipeline {
-  agent any
-
+  agent {
+    node {
+      label 'osx'
+    }
+    
+  }
   stages {
     stage('Build') {
       steps {
-        sh 'echo build'
+        parallel(
+          "Build": {
+            sh 'echo build'
+            
+          },
+          "build win": {
+            echo 'build for windows'
+            
+          }
+        )
       }
     }
     stage('Test') {
       steps {
-        sh 'echo check'
-//        junit 'reports/**/*.xml'
+        parallel(
+          "Test": {
+            sh 'echo check'
+            
+          },
+          "Test on win": {
+            echo 'test on windowd'
+            
+          }
+        )
       }
     }
     stage('Deploy') {
@@ -18,5 +39,8 @@ pipeline {
         sh 'echo Deploy'
       }
     }
+  }
+  environment {
+    ENV_VAR1 = '123'
   }
 }
