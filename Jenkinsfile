@@ -15,6 +15,13 @@ pipeline {
           },
           "build win": {
             echo 'build for windows'
+            node(label: 'vg-host') {
+              waitUntil() {
+                echo 'wait for condition'
+              }
+              
+            }
+            
             
           }
         )
