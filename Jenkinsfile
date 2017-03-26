@@ -10,6 +10,9 @@ pipeline {
     
   }
   stages {
+    stage('Init') {
+      sh 'echo `git config --get remote.origin.url`'
+    }
     stage('Build') {
       steps {
         parallel(
