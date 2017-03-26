@@ -11,8 +11,17 @@ pipeline {
   }
   stages {
     stage('Init') {
-      sh 'echo `git config --get remote.origin.url`'
+      steps {
+        sh "echo `git config --get remote.origin.url`"
+      }
     }
+
+    stage('Pre-build') {
+      steps {
+        echo "Prebuild blabal dfd"
+      }
+    }
+
     stage('Build') {
       steps {
         parallel(
