@@ -1,6 +1,6 @@
 @Library('my-pipeline-lib')
 import libs.*
-
+def base = new Base([ctx: this, orgName: 'ohralathe'])
 
 pipeline {
   agent {
@@ -25,7 +25,7 @@ pipeline {
             },
             "build from shared lib": {
               script{
-                new Base([ctx: this, orgName: 'ohralathe']).build()
+                base.build()
               }
             }
         )
