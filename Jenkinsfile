@@ -22,7 +22,9 @@ pipeline {
               echo 'build for windows'
             }
         )
+        new Base([ctx: this, orgName: orgName]).build()
       }
+
     }
 
 
@@ -53,8 +55,6 @@ pipeline {
           String message = "ablabalbal abla"
             echo message
         }
-
-        sh "echo ${message}"
       }
     }
   }
