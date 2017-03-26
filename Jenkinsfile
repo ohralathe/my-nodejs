@@ -1,13 +1,18 @@
+@Library('my-pipeline-lib') _
+
 pipeline {
   agent {
     node {
-      label 'osx'
+      label 'vg-host'
     }
     
   }
   stages {
     stage('Build') {
       steps {
+        when {
+          branch 'master'
+        }
         parallel(
           "Build": {
             sh 'echo build'
@@ -15,16 +20,11 @@ pipeline {
           },
           "build win": {
             echo 'build for windows'
-
-            node(label: 'vg-host') {
-              sh 'echo "balbal"'
-            }
-            
-            
           }
         )
       }
-    }
+
+
     stage('Test') {
       steps {
         parallel(
@@ -39,7 +39,11 @@ pipeline {
         )
       }
     }
+
     stage('Deploy') {
+      when {
+        branch 'prod'
+      }
       steps {
         sh 'echo Deploy'
       }
