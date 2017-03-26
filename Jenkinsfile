@@ -17,12 +17,13 @@ pipeline {
         NEW_DOMAIN_KEY = credentials('job-multibranch-test')
       }
       steps {
-        sh 'echo "DDDDDD'
+        sh 'echo "DDDDDD"'
         sh 'printenv'
         echo '-----'
         echo "$AN_ACCESS_KEY"
         echo "$NEW_DOMAIN_KEY"
-        sh 'echo "DDDDDD'
+        sh 'echo "DDDDDD"'
+
       }
     }
 
