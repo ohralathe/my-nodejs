@@ -44,6 +44,7 @@ pipeline {
     stage('Deploy') {
       when {
         branch 'prod'
+        branch 'test-1'
       }
       steps {
         sh 'echo Deploy'
