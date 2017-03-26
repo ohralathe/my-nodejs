@@ -1,4 +1,6 @@
-@Library('my-pipeline-lib') _
+@Library('my-pipeline-lib')
+import libs.*
+
 
 pipeline {
   agent {
