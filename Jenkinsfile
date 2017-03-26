@@ -11,9 +11,6 @@ pipeline {
   }
   stages {
     stage('Build') {
-      when {
-        branch 'test-1'
-      }
       steps {
         parallel(
             "Build": {
@@ -50,9 +47,6 @@ pipeline {
     }
 
     stage('Deploy') {
-      when {
-        branch 'test-1'
-      }
 
       steps {
         sh 'echo Deploy'
