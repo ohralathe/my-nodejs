@@ -46,8 +46,10 @@ pipeline {
         branch 'prod or test-1'
       }
 
+      String message = "ablabalbal abla"
       steps {
         sh 'echo Deploy'
+        sh "echo ${message}"
       }
     }
   }
