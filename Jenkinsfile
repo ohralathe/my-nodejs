@@ -21,7 +21,9 @@ pipeline {
         sh 'printenv'
         echo '-----'
         echo "$AN_ACCESS_KEY"
+        echo env.AN_ACCESS_KEY
         echo "$NEW_DOMAIN_KEY"
+        echo env.NEW_DOMAIN_KEY
         sh 'echo "DDDDDD"'
 
       }
