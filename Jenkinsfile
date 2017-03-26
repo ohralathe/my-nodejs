@@ -10,6 +10,19 @@ pipeline {
     
   }
   stages {
+
+    stage('init') {
+      environment {
+        AN_ACCESS_KEY = credentials('job-test-password')
+        NEW_DOMAIN_KEY = credentials('job-multibranch-test')
+      }
+      steps {
+        sh 'printenv'
+        echo '-----'
+        echo "$AN_ACCESS_KEY"
+        echo "$NEW_DOMAIN_KEY"
+      }
+    }
     stage('Build') {
       steps {
         parallel(
