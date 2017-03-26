@@ -25,7 +25,13 @@ pipeline {
         echo "$NEW_DOMAIN_KEY"
         echo env.NEW_DOMAIN_KEY
         sh 'echo "DDDDDD"'
-
+        script {
+          if (env.NEW_DOMAIN_KEY == '123456') {
+            echo 'new domain'
+          } else {
+            echo 'not new dmain'
+          }
+        }
       }
     }
 
