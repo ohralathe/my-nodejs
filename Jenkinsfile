@@ -14,15 +14,16 @@ pipeline {
           branch 'master'
         }
         parallel(
-          "Build": {
-            sh 'echo build'
-            
-          },
-          "build win": {
-            echo 'build for windows'
-          }
+            "Build": {
+              sh 'echo build'
+
+            },
+            "build win": {
+              echo 'build for windows'
+            }
         )
       }
+    }
 
 
     stage('Test') {
