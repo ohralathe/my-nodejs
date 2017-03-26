@@ -43,7 +43,7 @@ pipeline {
 
     stage('Deploy') {
       when {
-        branch 'prod or test-1'
+        branch 'test-1'
       }
 
       String message = "ablabalbal abla"
