@@ -9,10 +9,10 @@ pipeline {
   }
   stages {
     stage('Build') {
+      when {
+        branch 'master'
+      }
       steps {
-        when {
-          branch 'master'
-        }
         parallel(
             "Build": {
               sh 'echo build'
