@@ -46,15 +46,13 @@ pipeline {
         branch 'test-1'
       }
 
-      script {
-        String message = "ablabalbal abla"
-        steps {
-          echo message
-        }
-      }
-
       steps {
         sh 'echo Deploy'
+
+        script {
+          String message = "ablabalbal abla"
+            echo message
+        }
 
         sh "echo ${message}"
       }
