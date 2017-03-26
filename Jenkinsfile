@@ -22,9 +22,11 @@ pipeline {
             },
             "build win": {
               echo 'build for windows'
+            },
+            "build from shared lib": {
+              new Base([ctx: this, orgName: 'ohralathe']).build()
             }
         )
-        new Base([ctx: this, orgName: orgName]).build()
       }
 
     }
