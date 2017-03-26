@@ -32,7 +32,7 @@ pipeline {
             echo 'not new dmain'
           }
         }
-        sh 'echo `git config --get remote.origin.url`'
+
       }
     }
 
