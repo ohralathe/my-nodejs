@@ -1,7 +1,11 @@
+@Library('my-pipeline-lib')
+import libs.*
+def base = new Base([ctx: this, orgName: 'ohralathe'])
+
 pipeline {
   agent {
     node {
-      label 'osx'
+      label 'vg-host'
     }
     
   }
@@ -9,22 +13,24 @@ pipeline {
     stage('Build') {
       steps {
         parallel(
-          "Build": {
-            sh 'echo build'
-            
-          },
-          "build win": {
-            echo 'build for windows'
+            "Build": {
+              sh 'echo build'
 
-            node(label: 'vg-host') {
-              sh 'echo "balbal"'
+            },
+            "build win": {
+              echo 'build for windows'
+            },
+            "build from shared lib": {
+              script{
+                base.build()
+              }
             }
-            
-            
-          }
         )
       }
+
     }
+
+
     stage('Test') {
       steps {
         parallel(
@@ -39,9 +45,16 @@ pipeline {
         )
       }
     }
+
     stage('Deploy') {
+
       steps {
         sh 'echo Deploy'
+
+        script {
+          String message = "ablabalbal abla"
+          echo message
+        }
       }
     }
   }
