@@ -24,7 +24,9 @@ pipeline {
               echo 'build for windows'
             },
             "build from shared lib": {
-              new Base([ctx: this, orgName: 'ohralathe']).build()
+              script{
+                new Base([ctx: this, orgName: 'ohralathe']).build()
+              }
             }
         )
       }
@@ -57,7 +59,7 @@ pipeline {
 
         script {
           String message = "ablabalbal abla"
-            echo message
+          echo message
         }
       }
     }
