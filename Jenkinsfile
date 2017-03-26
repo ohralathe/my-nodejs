@@ -18,7 +18,7 @@ pipeline {
 
     stage('Pre-build') {
       steps {
-        echo "Prebuild blabal"
+        echo "Prebuild blabal dfd"
       }
     }
 
