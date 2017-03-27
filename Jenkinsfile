@@ -2,21 +2,20 @@
 import libs.*
 def base = new Base([ctx: this, orgName: 'ohralathe'])
 
-pipeline {
-  agent {
-    node {
-      label 'master'
-    }
+node('master') {
+  def extraEnv
+  withCredentials([string(credentialsId: 'NPM_ACCESS_TOKEN', variable: 'AN_ACCESS')]) {
+    extraEnv = "$AN_ACCESS"
+    sh '''
+      echo  $AN_ACCESS
+    '''
   }
-  stages {
-      bb()
-  }
-}
-def bb() {
-  stage("ablabla") {
-    steps {
-      echo "Ccccc"
-    }
+
+  def path = "PATH+EXTRA=${extraEnv}"
+  withEnv([path])
+  stage("test") {
+    println path
+    sh "printenv"
   }
 }
 //
