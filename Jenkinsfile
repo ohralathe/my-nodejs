@@ -9,14 +9,19 @@ node('master') {
     sh '''
       echo  $AN_ACCESS
     '''
+    if (env.AN_ACCESS == "AN_ACCESS") {
+      sh 'echo ddddddddd'
+    }
   }
 
   def path = "PATH+EXTRA=${extraEnv}"
-  withEnv([path])
-  stage("test") {
-    println path
-    sh "printenv"
+  withEnv([path]) {
+    stage("test") {
+      println path
+      sh "printenv"
+    }
   }
+
 }
 //
 //pipeline {
