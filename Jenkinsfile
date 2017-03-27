@@ -11,7 +11,7 @@ pipeline {
   }
 
   stages {
-    stage {
+    stage("stage 1") {
       echo "1st stage"
     }
   }
@@ -20,7 +20,7 @@ pipeline {
     when {
       branch "test-1"
     }
-    stage {
+    stage("stage 2") {
       echo "2st stage"
     }
   }
