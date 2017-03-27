@@ -9,9 +9,7 @@ pipeline {
     }
   }
   stages {
-    script {
       bb()
-    }
   }
 }
 def bb() {
