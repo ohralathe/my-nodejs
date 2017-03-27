@@ -26,6 +26,13 @@ node('master') {
       if (env.AN_ACCESS != "AN_ACCESS") {
         sh 'echo dddddddCCCCCCdd'
       }
+      if (extraEnv == "AN_ACCESS") {
+        sh 'echo extraEnvccccc'
+      }
+
+      if (extraEnv != "AN_ACCESS") {
+        sh 'echo extraEnvCDDDDDDccccc'
+      }
     }
   }
 
