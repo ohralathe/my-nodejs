@@ -5,7 +5,7 @@ def base = new Base([ctx: this, orgName: 'ohralathe'])
 pipeline {
   stages {
     script {
-
+      bb()
     }
   }
 }
