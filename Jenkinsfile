@@ -9,8 +9,24 @@ pipeline {
     }
     
   }
-  stages {
 
+  stages {
+    stage {
+      echo "1st stage"
+    }
+  }
+
+  stages {
+    when {
+      branch "test-1"
+    }
+    stage {
+      echo "2st stage"
+    }
+  }
+
+
+  stages {
     stage('init') {
       environment {
         AN_ACCESS_KEY = credentials('job-test-password')
