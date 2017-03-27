@@ -5,7 +5,7 @@ def base = new Base([ctx: this, orgName: 'ohralathe'])
 node('master') {
   def extraEnv
   withCredentials([string(credentialsId: 'NPM_ACCESS_TOKEN', variable: 'AN_ACCESS')]) {
-    extraEnv = "$AN_ACCESS"
+    extraEnv = env.AN_ACCESS
     sh '''
       echo  $AN_ACCESS
     '''
@@ -19,6 +19,13 @@ node('master') {
     stage("test") {
       println path
       sh "printenv"
+      if (env.AN_ACCESS == "AN_ACCESS") {
+        sh 'echo ddddddDDDDDddd'
+      }
+
+      if (env.AN_ACCESS != "AN_ACCESS") {
+        sh 'echo dddddddCCCCCCdd'
+      }
     }
   }
 
