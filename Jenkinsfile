@@ -3,6 +3,11 @@ import libs.*
 def base = new Base([ctx: this, orgName: 'ohralathe'])
 
 pipeline {
+  agent {
+    node {
+      label 'master'
+    }
+  }
   stages {
     script {
       bb()
