@@ -3,9 +3,18 @@ import libs.*
 def base = new Base([ctx: this, orgName: 'ohralathe'])
 
 node('master') {
-  env.AN_ACCESS = credentials("NPM_ACCESS_TOKEN")
+  def extraEnv
+  withCredentials([usernameColonPassword(credentialsId: 'NPM_ACCESS_TOKEN', variable: 'AN_ACCESS')]) {
+    extraEnv = "$AN_ACCESS"
+    sh '''
+      echo  $USERPASS
+    '''
+  }
+
+  def path = "PATH+EXTRA=${extraEnv}"
+  withEnv([path])
   stage("test") {
-    println env.AN_ACCESS
+    println path
   }
 }
 //
