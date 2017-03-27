@@ -9,16 +9,46 @@ pipeline {
     }
     
   }
-  stages {
-    stage('Init') {
-      steps {
-        sh "echo `git config --get remote.origin.url`"
-      }
-    }
 
-    stage('Pre-build') {
+  stages {
+    stage {
+      echo "1st stage"
+    }
+  }
+
+  stages {
+    when {
+      branch "test-1"
+    }
+    stage {
+      echo "2st stage"
+    }
+  }
+
+
+  stages {
+    stage('init') {
+      environment {
+        AN_ACCESS_KEY = credentials('job-test-password')
+        NEW_DOMAIN_KEY = credentials('job-multibranch-test')
+      }
       steps {
-        echo "Prebuild blabal dfd"
+        sh 'echo "DDDDDD"'
+        sh 'printenv'
+        echo '-----'
+        echo "$AN_ACCESS_KEY"
+        echo env.AN_ACCESS_KEY
+        echo "$NEW_DOMAIN_KEY"
+        echo env.NEW_DOMAIN_KEY
+        sh 'echo "DDDDDD"'
+        script {
+          if (env.NEW_DOMAIN_KEY == '123456') {
+            echo 'new domain'
+          } else {
+            echo 'not new dmain'
+          }
+        }
+
       }
     }
 
