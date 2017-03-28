@@ -56,8 +56,8 @@ pipeline {
       steps {
         echo "scm: ${scm.getClass()}"
         echo "SVN_REVISION: ${env.SVN_REVISION}"
-        echo "SVN_REVISION: ${scm.SVN_REVISION}"
-        echo "ghprbActualCommitAuthor: ${env.ghprbActualCommitAuthor}"
+        echo "GIT_BRANCH: ${scm.GIT_BRANCH}"
+        echo "GIT_LOCAL_BRANCH: ${scm.GIT_LOCAL_BRANCH}"
         echo "ghprbActualCommitAuthorEmail: ${env.ghprbActualCommitAuthorEmail}"
         echo "ghprbTriggerAuthor: ${env.ghprbTriggerAuthor}"
         echo "ghprbTriggerAuthorEmail: ${env.ghprbTriggerAuthorEmail}"
