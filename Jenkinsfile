@@ -54,20 +54,20 @@ pipeline {
         NEW_DOMAIN_KEY = credentials('job-multibranch-test')
       }
       steps {
-        sh echo "sha1: ${env.sha1}"
-        sh echo "ghprbActualCommit: ${env.ghprbActualCommit}"
-        sh echo "ghprbActualCommitAuthor: ${env.ghprbActualCommitAuthor}"
-        sh echo "ghprbActualCommitAuthorEmail: ${env.ghprbActualCommitAuthorEmail}"
-        sh echo "ghprbTriggerAuthor: ${env.ghprbTriggerAuthor}"
-        sh echo "ghprbTriggerAuthorEmail: ${env.ghprbTriggerAuthorEmail}"
-        sh echo "ghprbPullId: ${env.ghprbPullId}"
-        sh echo "ghprbTargetBranch: ${env.ghprbTargetBranch}"
-        sh echo "ghprbSourceBranch: ${env.ghprbSourceBranch}"
-        sh echo "ghprbPullAuthorEmail: ${env.ghprbPullAuthorEmail}"
-        sh echo "ghprbPullDescription: ${env.ghprbPullDescription}"
-        sh echo "ghprbPullTitle: ${env.ghprbPullTitle}"
-        sh echo "ghprbPullLink: ${env.ghprbPullLink}"
-        sh echo "GIT_BRANCH: ${env.GIT_BRANCH}"
+        echo "sha1: ${env.sha1}"
+        echo "ghprbActualCommit: ${env.ghprbActualCommit}"
+        echo "ghprbActualCommitAuthor: ${env.ghprbActualCommitAuthor}"
+        echo "ghprbActualCommitAuthorEmail: ${env.ghprbActualCommitAuthorEmail}"
+        echo "ghprbTriggerAuthor: ${env.ghprbTriggerAuthor}"
+        echo "ghprbTriggerAuthorEmail: ${env.ghprbTriggerAuthorEmail}"
+        echo "ghprbPullId: ${env.ghprbPullId}"
+        echo "ghprbTargetBranch: ${env.ghprbTargetBranch}"
+        echo "ghprbSourceBranch: ${env.ghprbSourceBranch}"
+        echo "ghprbPullAuthorEmail: ${env.ghprbPullAuthorEmail}"
+        echo "ghprbPullDescription: ${env.ghprbPullDescription}"
+        echo "ghprbPullTitle: ${env.ghprbPullTitle}"
+        echo "ghprbPullLink: ${env.ghprbPullLink}"
+        echo "GIT_BRANCH: ${env.GIT_BRANCH}"
         timeout(time: 30, unit: 'SECONDS') {
           input("wait for timeout?")
         }
