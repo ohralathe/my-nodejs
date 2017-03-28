@@ -54,6 +54,23 @@ pipeline {
         NEW_DOMAIN_KEY = credentials('job-multibranch-test')
       }
       steps {
+        echo "sha1: ${env.sha1}"
+        echo "ghprbActualCommit: ${env.ghprbActualCommit}"
+        echo "ghprbActualCommitAuthor: ${env.ghprbActualCommitAuthor}"
+        echo "ghprbActualCommitAuthorEmail: ${env.ghprbActualCommitAuthorEmail}"
+        echo "ghprbTriggerAuthor: ${env.ghprbTriggerAuthor}"
+        echo "ghprbTriggerAuthorEmail: ${env.ghprbTriggerAuthorEmail}"
+        echo "ghprbPullId: ${env.ghprbPullId}"
+        echo "ghprbTargetBranch: ${env.ghprbTargetBranch}"
+        echo "ghprbSourceBranch: ${env.ghprbSourceBranch}"
+        echo "ghprbPullAuthorEmail: ${env.ghprbPullAuthorEmail}"
+        echo "ghprbPullDescription: ${env.ghprbPullDescription}"
+        echo "ghprbPullTitle: ${env.ghprbPullTitle}"
+        echo "ghprbPullLink: ${env.ghprbPullLink}"
+        echo "GIT_BRANCH: ${env.GIT_BRANCH}"
+        timeout(time: 30, unit: 'SECONDS') {
+          input("wait for timeout?")
+        }
         sh 'echo "DDDDDD"'
         echo "BRANCH_NAME: ${env.BRANCH_NAME}"
         echo "CHANGE_ID: ${env.CHANGE_ID}"
@@ -132,3 +149,6 @@ pipeline {
     ENV_VAR1 = '123'
   }
 }
+
+
+
