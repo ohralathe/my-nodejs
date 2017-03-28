@@ -69,7 +69,8 @@ pipeline {
         echo "ghprbPullTitle: ${env.ghprbPullTitle}"
         echo "ghprbPullLink: ${env.ghprbPullLink}"
         echo "GIT_BRANCH: ${env.GIT_BRANCH}"
-        timeout(time: 30, unit: 'SECONDS') {
+
+        timeout(time: 60, unit: 'SECONDS') {
           input("wait for timeout?")
         }
         sh 'echo "DDDDDD"'
@@ -103,6 +104,7 @@ pipeline {
         parallel(
             "Build": {
               sh 'echo build'
+              sh 'echo build2'
 
             },
             "build win": {
