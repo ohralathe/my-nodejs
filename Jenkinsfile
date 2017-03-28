@@ -54,8 +54,8 @@ pipeline {
         NEW_DOMAIN_KEY = credentials('job-multibranch-test')
       }
       steps {
-        echo "GIT_BRANCH: ${GIT_BRANCH}"
-        echo "GIT_LOCAL_BRANCH: ${GIT_LOCAL_BRANCH}"
+        echo "GIT_BRANCH: ${env.GIT_BRANCH}"
+        echo "GIT_LOCAL_BRANCH: ${env.GIT_LOCAL_BRANCH}"
         echo "ghprbActualCommit: ${env.ghprbActualCommit}"
         echo "ghprbActualCommitAuthor: ${env.ghprbActualCommitAuthor}"
         echo "ghprbActualCommitAuthorEmail: ${env.ghprbActualCommitAuthorEmail}"
