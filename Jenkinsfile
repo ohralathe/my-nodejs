@@ -54,6 +54,9 @@ pipeline {
         NEW_DOMAIN_KEY = credentials('job-multibranch-test')
       }
       steps {
+        timeout(time: 20, unit: 'SECONDS') {
+          input "wait for time out"
+        }
         sh 'echo "DDDDDD"'
         echo "BRANCH_NAME: ${env.BRANCH_NAME}"
         echo "CHANGE_ID: ${env.CHANGE_ID}"
