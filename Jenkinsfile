@@ -27,7 +27,6 @@ pipeline {
       steps {
         echo "Prebuild blabal dfd ddcc"
         boolean result = deploy([disabledDeploy: env.BRANCH_NAME.startsWith("PR-")])
-        env.ENV_VAR1 = "cccddddddddee"
       }
     }
 
