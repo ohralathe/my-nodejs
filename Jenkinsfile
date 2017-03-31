@@ -44,6 +44,8 @@ pipeline {
             "build from shared lib": {
               script{
                 base.build()
+                echo "stageErrors: ${base.stageErrors}"
+                base.deploy()
               }
             }
         )
@@ -86,9 +88,9 @@ pipeline {
   post {
     always {
       script {
-        echo "ENV_VAR1: ${env.ENV_VAR1}"
-        if (env.ENV_VAR1) {
-          echo "DDDD: ${env.ENV_VAR1}"
+        echo "stageErrors: ${base.stageErrors}"
+        if (base.stageErrors) {
+          echo "DDDD: ${base.stageErrors}"
         }
       }
     }
