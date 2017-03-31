@@ -84,9 +84,11 @@ pipeline {
 
   post {
     always {
-      echo "CCCC: ${str}"
-      if (str) {
-        echo "DDDD: ${str}"
+      script {
+        echo "CCCC: ${str}"
+        if (str) {
+          echo "DDDD: ${str}"
+        }
       }
     }
   }
