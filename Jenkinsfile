@@ -28,7 +28,8 @@ pipeline {
         echo "Prebuild blabal dfd ddcc"
         script {
           boolean ret = deploy([disabledDeploy: env.BRANCH_NAME.startsWith("PR-")])
-          env.ENV_VAR = "333333"
+          if (ret)
+            str = "cddjodjfosd jfasjf"
         }
       }
     }
@@ -46,7 +47,7 @@ pipeline {
             "build from shared lib": {
               script{
                 base.build()
-                echo "stageErrors: ${base.stageErrors}"
+                echo "stageErrors: ${String.valueOf(base.stageErrors)}"
                 base.deploy()
               }
             }
@@ -92,6 +93,7 @@ pipeline {
       script {
 
         echo "ENV_VAR1: ${env.ENV_VAR1}"
+        echo "str: ${str}"
         echo "stageErrors: ${base.stageErrors}"
         if (base.stageErrors) {
           echo "DDDD: ${base.stageErrors}"
