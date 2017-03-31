@@ -2,6 +2,8 @@
 import libs.*
 def base = new Base([ctx: this, orgName: 'ohralathe'])
 
+String str = "aaaaaa"
+
 pipeline {
   agent {
     node {
@@ -79,10 +81,19 @@ pipeline {
   environment {
     ENV_VAR1 = '123'
   }
+
+  post {
+    always {
+      echo "CCCC: ${str}"
+      if (str) {
+        echo "DDDD: ${str}"
+      }
+    }
+  }
 }
 
 void deploy(data) {
-  sh "echo build"
+  sh "echo builddf dfdccccccc"
   if (!data.disabledDeploy) {
     sh "echo deployment blblbll"
   }
