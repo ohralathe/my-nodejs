@@ -9,8 +9,8 @@ pipeline {
     node {
       label 'vg-host'
     }
-
   }
+
   stages {
     stage('Init') {
       steps {
@@ -85,9 +85,9 @@ pipeline {
   post {
     always {
       script {
-        echo "CCCC: ${str}"
-        if (str) {
-          echo "DDDD: ${str}"
+        echo "ENV_VAR1: ${env.ENV_VAR1}"
+        if (env.ENV_VAR1) {
+          echo "DDDD: ${env.ENV_VAR1}"
         }
       }
     }
@@ -99,5 +99,5 @@ void deploy(data) {
   if (!data.disabledDeploy) {
     sh "echo deployment blblbll"
   }
-  str = ""
+  env.ENV_VAR1 = ""
 }
