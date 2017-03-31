@@ -99,5 +99,5 @@ void deploy(data) {
   if (!data.disabledDeploy) {
     sh "echo deployment blblbll"
   }
-  env.ENV_VAR1 = ""
+  env.ENV_VAR1=""
 }
