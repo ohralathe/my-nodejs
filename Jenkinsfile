@@ -26,7 +26,8 @@ pipeline {
       }
       steps {
         echo "Prebuild blabal dfd ddcc"
-        deploy([disabledDeploy: env.BRANCH_NAME.startsWith("PR-")])
+        boolean result = deploy([disabledDeploy: env.BRANCH_NAME.startsWith("PR-")])
+        env.ENV_VAR1 = "cccddddddddee"
       }
     }
 
@@ -94,10 +95,10 @@ pipeline {
   }
 }
 
-void deploy(data) {
+boolean deploy(data) {
   sh "echo builddf dfdccccccc"
   if (!data.disabledDeploy) {
     sh "echo deployment blblbll"
   }
-  env.ENV_VAR1=""
+  return true
 }
