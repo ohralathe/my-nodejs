@@ -26,7 +26,10 @@ pipeline {
       }
       steps {
         echo "Prebuild blabal dfd ddcc"
-        boolean result = deploy([disabledDeploy: env.BRANCH_NAME.startsWith("PR-")])
+        script {
+          boolean ret = deploy([disabledDeploy: env.BRANCH_NAME.startsWith("PR-")])
+          env.ENV_VAR = "333333"
+        }
       }
     }
 
@@ -87,6 +90,8 @@ pipeline {
   post {
     always {
       script {
+
+        echo "ENV_VAR1: ${env.ENV_VAR1}"
         echo "stageErrors: ${base.stageErrors}"
         if (base.stageErrors) {
           echo "DDDD: ${base.stageErrors}"
