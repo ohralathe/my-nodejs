@@ -99,4 +99,5 @@ void deploy(data) {
   if (!data.disabledDeploy) {
     sh "echo deployment blblbll"
   }
+  str = ""
 }
