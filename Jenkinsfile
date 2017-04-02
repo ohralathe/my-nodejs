@@ -15,9 +15,9 @@ pipeline {
     stage('Init') {
       steps {
         script {
-            sh "echo `git config --get remote.origin.url`"
-            sh "echo 'GIT_COMMIT: ${scm.GIT_COMMIT}'"
-            sh "echo 'GIT_BRANCH: ${scm.GIT_BRANCH}'"
+          sh "echo 'GIT_COMMIT: ${scm.GIT_COMMIT}'"
+          sh "echo 'GIT_BRANCH: ${scm.GIT_BRANCH}'"
+          sh "git config --get remote.origin.url"
         }
       }
     }
