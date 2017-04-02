@@ -14,6 +14,7 @@ pipeline {
   stages {
     stage('Init') {
       steps {
+        return true
         sh "echo `git config --get remote.origin.url`"
       }
     }
@@ -25,6 +26,7 @@ pipeline {
         }
       }
       steps {
+        return false
         echo "Prebuild blabal dfd ddcc"
         script {
           boolean ret = deploy([disabledDeploy: env.BRANCH_NAME.startsWith("PR-")])
