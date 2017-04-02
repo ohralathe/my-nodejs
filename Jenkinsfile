@@ -15,8 +15,8 @@ pipeline {
     stage('Init') {
       steps {
         script {
-          return true
-          sh "echo `git config --get remote.origin.url`"
+            sh "echo `git config --get remote.origin.url`"
+            sh "echo 'GIT_COMMIT: ${env.GIT_COMMIT}'"
         }
       }
     }
@@ -30,7 +30,6 @@ pipeline {
       steps {
         echo "Prebuild blabal dfd ddcc"
         script {
-          return false
           boolean ret = deploy([disabledDeploy: env.BRANCH_NAME.startsWith("PR-")])
           if (ret)
             str = "cddjodjfosd jfasjf"
