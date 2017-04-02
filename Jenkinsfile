@@ -7,7 +7,7 @@ String str = "aaaaaa"
 pipeline {
   agent {
     node {
-      label 'vg-host'
+      label 'master'
     }
   }
 
