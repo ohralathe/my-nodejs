@@ -139,6 +139,9 @@ String makeDeployScript() {
       
       echo "KOBITON_DB_NAME $KOBITON_DB_NAME"
       echo "KOBITON_DB_HOST $KOBITON_DB_HOST"
+      echo "KOBITON_DB_PASSWORD $KOBITON_DB_PASSWORD"
+      echo "KOBITON_DB_USERNAME $KOBITON_DB_USERNAME"
+      echo "KOBITON_DB_PORT $KOBITON_DB_PORT"
       
   '''
 
