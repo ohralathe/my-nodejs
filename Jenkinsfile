@@ -21,8 +21,6 @@ pipeline {
 
   environment {
     REMOTE_USER = "ubuntu"
-    NPM_ACCESS_KEY = credentials("npm_access_token")
-    GITHUB_CREDENTIAL_ID = "private_github_repo_credential"
   }
 
   stages {
