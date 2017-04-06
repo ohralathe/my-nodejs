@@ -70,7 +70,6 @@ void installNodeModules() {
 boolean buildAndDeploy(Map inputMap) {
   boolean succeed = true
   try {
-    sendToSlack("[${inputMap.environment}] Start deploying")
 
 //    sh "yarn run build"
 
@@ -84,7 +83,6 @@ boolean buildAndDeploy(Map inputMap) {
     succeed = false
   }
 
-  sendToSlack("[${inputMap.environment}] ${currentBuild.result} deployed")
   return succeed
 }
 
