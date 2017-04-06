@@ -63,7 +63,7 @@ pipeline {
 void installNodeModules() {
   // YARN needs .npmrc to download the private packages from npmjs.com
   writeFile(encoding: "UTF-8", file: ".npmrc", text: "//registry.npmjs.org/:_authToken=${env.NPM_ACCESS_KEY}")
-  sh "yarn install"
+//  sh "yarn install"
 }
 
 
@@ -154,7 +154,7 @@ String makeDeployScript() {
 
 void deploy() {
 //  packageBuild()
-  sendFile("./hub-build.tgz", "/home/ubuntu/", env.REMOTE_USER, env.REMOTE_HOST, env.CREDENTIAL_ID)
+//  sendFile("./hub-build.tgz", "/home/ubuntu/", env.REMOTE_USER, env.REMOTE_HOST, env.CREDENTIAL_ID)
   extractBuild(env.REMOTE_USER, env.REMOTE_HOST, env.CREDENTIAL_ID)
 }
 
