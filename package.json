@@ -10,7 +10,9 @@
     "lint": "echo 'npm run lint'"
   },
   "dependencies": {
-    "express": "^4.13.3"
+    "@kobiton/core-build": "1.0.36",
+    "express": "^4.13.3",
+    "node-js-sample": "0.2.8"
   },
   "engines": {
     "node": "4.0.0"
