@@ -34,9 +34,11 @@ pipeline {
       }
 
       steps {
+        script {
           acme.setName('Alice')
           echo acme.name /* prints: 'Alice' */
           acme.caution 'The queen is angry!'
+        }
       }
     }
   }
