@@ -1,4 +1,6 @@
-@Librar("pl-shared-libs") _
+import org.fusesource.hawtjni.runtime.Library
+
+@Library("pl-shared-libs") _
 
 // Don't re-sent the error message to slack in failure block if another similar message already sent
 boolean sendErrorMessage = false
@@ -8,13 +10,6 @@ pipeline {
     node {
       label "master"
     }
-  }
-
-  parameters {
-    booleanParam(name: "SKIP_DEPLOY_TO_TEST", defaultValue: false, description: "Skip build and deploy the branch master to Test server")
-    booleanParam(name: "SKIP_DEPLOY_TO_STAGING_AS_TEST", defaultValue: true, description: "Skip build and deploy the branch master to Staging server")
-    booleanParam(name: "SKIP_DEPLOY_TO_STAGING", defaultValue: false, description: "Skip build and deploy the branch prod to Staging server")
-    booleanParam(name: "SKIP_DEPLOY_TO_PROD", defaultValue: true, description: "Skip build and deploy the branch prod to PRODUCTION server")
   }
 
   options {
@@ -31,7 +26,7 @@ pipeline {
       when {
         expression {
           // Allow to skip deploy the branch master to Test server in case manual
-          return env.BRANCH_NAME == "master" && !params.SKIP_DEPLOY_TO_TEST
+          return env.BRANCH_NAME == "master"
         }
       }
 
