@@ -1,4 +1,4 @@
-@Library("pl-shared-libs") _
+@Library("pl-shared-libs@master") _
 
 // Don't re-sent the error message to slack in failure block if another similar message already sent
 boolean sendErrorMessage = false
