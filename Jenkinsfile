@@ -1,5 +1,3 @@
-import org.fusesource.hawtjni.runtime.Library
-
 @Library("pl-shared-libs") _
 
 // Don't re-sent the error message to slack in failure block if another similar message already sent
