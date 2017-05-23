@@ -16,6 +16,7 @@ pipeline {
 
   environment {
     REMOTE_USER = "ubuntu"
+    GITHUB_ACCESS_TOKEN = credentials("github_access_token")
   }
 
   stages {
