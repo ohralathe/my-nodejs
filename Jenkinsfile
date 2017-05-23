@@ -24,20 +24,14 @@ pipeline {
       when {
         expression {
           // Allow to skip deploy the branch master to Test server in case manual
-          return env.BRANCH_NAME == "master"
+          return env.BRANCH_NAME.startsWith("PR-")
         }
-      }
-
-      environment {
-        REMOTE_HOST = "${env.TEST_SERVER_HOST}"
-        CREDENTIAL_ID = "ssh_credential_to_dev_server"
       }
 
       steps {
         script {
-          acme.setName('Alice')
-          echo acme.name /* prints: 'Alice' */
-          acme.caution 'The queen is angry!'
+          vars.setErrorMessage("Pelase update packaeg.json file")
+          utils.addCommentToPR()
         }
       }
     }
